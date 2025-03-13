@@ -1,0 +1,26 @@
+@use "./variables" as *;
+@use "sass:map";
+
+@mixin respond($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints";
+  }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-gradient($start, $end) {
+  background: linear-gradient(to right, $start, $end);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

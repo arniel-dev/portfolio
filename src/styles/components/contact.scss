@@ -1,0 +1,94 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+.contact {
+  padding: map.get($spacing-sizes, "xl") 0;
+  background: rgba(map.get($colors, "dark-alt"), 0.9);
+
+  &__container {
+    @include flex-center;
+    gap: map.get($spacing-sizes, "xl");
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 map.get($spacing-sizes, "md");
+
+    @include respond("md") {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__text {
+    margin-bottom: map.get($spacing-sizes, "lg");
+    font-size: 1.1rem;
+  }
+
+  &__details {
+    @include flex-center(column);
+    gap: map.get($spacing-sizes, "md");
+  }
+
+  &__link {
+    color: map.get($colors, "light");
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: map.get($colors, "primary");
+    }
+  }
+
+  &__form {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+.form {
+  &__group {
+    margin-bottom: map.get($spacing-sizes, "lg");
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: map.get($spacing-sizes, "sm");
+    background: rgba(map.get($colors, "light"), 0.1);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: map.get($colors, "light");
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: map.get($colors, "primary");
+      background: rgba(map.get($colors, "primary"), 0.1);
+    }
+  }
+
+  &__textarea {
+    height: 150px;
+    resize: vertical;
+  }
+
+  &__button {
+    background: linear-gradient(
+      45deg,
+      map.get($colors, "primary"),
+      map.get($colors, "secondary")
+    );
+    color: map.get($colors, "light");
+    padding: map.get($spacing-sizes, "sm") map.get($spacing-sizes, "lg");
+    border: none;
+    border-radius: 5px;
+    font-weight: map.get($font-weights, "bold");
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+}

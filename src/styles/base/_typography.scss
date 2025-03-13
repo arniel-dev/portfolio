@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+body {
+  font-family: $font-primary;
+  color: map.get($colors, "light");
+  background: linear-gradient(
+    45deg,
+    map.get($colors, "dark"),
+    map.get($colors, "dark-alt")
+  );
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: map.get($font-weights, "bold");
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  @include text-gradient(
+    map.get($colors, "primary"),
+    map.get($colors, "secondary")
+  );
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: map.get($spacing-sizes, "lg");
+}
+
+p {
+  max-width: 65ch;
+  line-height: 1.6;
+}

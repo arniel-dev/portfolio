@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+.skills {
+  padding: map.get($spacing-sizes, "xl") 0;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 map.get($spacing-sizes, "md");
+  }
+}
+
+.skill {
+  &__item {
+    margin-bottom: map.get($spacing-sizes, "lg");
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: map.get($spacing-sizes, "sm");
+  }
+
+  &__name {
+    font-weight: map.get($font-weights, "medium");
+  }
+
+  &__level {
+    color: map.get($colors, "primary");
+  }
+
+  &__bar {
+    height: 10px;
+    background: rgba(map.get($colors, "light"), 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__progress {
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      map.get($colors, "primary"),
+      map.get($colors, "secondary")
+    );
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills__container {
+    max-width: 100%;
+  }
+}

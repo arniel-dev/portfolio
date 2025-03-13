@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.experience {
+  &__grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 map.get($spacing-sizes, "md");
+  }
+
+  &__card {
+    background: rgba(map.get($colors, "light"), 0.05);
+    padding: map.get($spacing-sizes, "lg");
+    border-radius: 8px;
+    margin-bottom: map.get($spacing-sizes, "xl");
+    backdrop-filter: blur(5px);
+  }
+
+  &__company {
+    color: map.get($colors, "primary");
+    margin-bottom: map.get($spacing-sizes, "xs");
+  }
+
+  &__duration {
+    color: rgba(map.get($colors, "light"), 0.7);
+    font-size: 0.9rem;
+    margin-bottom: map.get($spacing-sizes, "md");
+  }
+
+  &__item {
+    margin-left: map.get($spacing-sizes, "md");
+    &::before {
+      content: "▹";
+      color: map.get($colors, "primary");
+      margin-right: map.get($spacing-sizes, "xs");
+    }
+  }
+}

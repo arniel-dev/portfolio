@@ -1,0 +1,73 @@
+// Abstracts
+@use "./abstracts/variables";
+@use "./abstracts/mixins";
+@use "./abstracts/animations";
+
+// Base
+@use "./base/reset";
+@use "./base/typography";
+@use "./base/utilities";
+
+// Components
+@use "./components/buttons";
+@use "./components/tag-cloud";
+@use "./components/experience";
+
+// Layouts
+@use "./layouts/grid";
+@use "./layouts/header";
+@use "./layouts/footer";
+@use "./layouts/section";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+
+:root {
+  --primary: #2ecc71;
+  --secondary: #3498db;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  color: white;
+  min-height: 100dvh;
+  min-width: 100dvw;
+}
+
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.1;
+    z-index: -1;
+    animation: pulse 8s infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+//section

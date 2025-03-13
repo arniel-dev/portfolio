@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: map.get($z-layers, "overlay");
+  backdrop-filter: blur(10px);
+  background: rgba(map.get($colors, "dark"), 0.8);
+  padding: map.get($spacing-sizes, "md");
+}
+
+.nav {
+  &__list {
+    @include flex-center;
+    gap: map.get($spacing-sizes, "lg");
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    color: map.get($colors, "light");
+    text-decoration: none;
+    font-weight: map.get($font-weights, "medium");
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: map.get($colors, "primary");
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__list {
+    gap: map.get($spacing-sizes, "md");
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,42 @@
+// Colors
+$colors: (
+  primary: #2ecc71,
+  secondary: #3498db,
+  dark: #1a1a1a,
+  dark-alt: #2a2a2a,
+  light: #ffffff,
+  overlay: rgba(0, 0, 0, 0.8),
+);
+
+// Typography
+$font-primary: "Poppins", sans-serif;
+$font-weights: (
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);
+
+// Spacing
+$spacing-unit: 1rem;
+$spacing-sizes: (
+  xs: $spacing-unit * 0.5,
+  sm: $spacing-unit * 0.75,
+  md: $spacing-unit,
+  lg: $spacing-unit * 1.5,
+  xl: $spacing-unit * 2,
+);
+
+// Breakpoints
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+// Z-index
+$z-layers: (
+  default: 1,
+  overlay: 100,
+  modal: 1000,
+);
